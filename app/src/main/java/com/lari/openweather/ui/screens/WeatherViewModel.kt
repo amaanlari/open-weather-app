@@ -14,7 +14,7 @@ class WeatherViewModel : ViewModel() {
     val weatherData: StateFlow<WeatherResponse?> = _weatherData
     private val _weatherApi = WeatherApi.create()
 
-    fun fetchWeather(city: String, apiKey: String, units: String) {
+    fun fetchWeather(city: String, apiKey: String, units: String="metric") {
         viewModelScope.launch {
             try {
                 val response = _weatherApi.getWeather(city, apiKey, units)
